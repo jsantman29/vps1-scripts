@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+    # Creates the reverse proxy service using the conf file present in the current directory.
+    reverseproxy:
+        depends_on:
+            - myresume
+            - vocabularyexpander
+        image: nginx:latest
+        container_name: reverseproxy_nginx
+        volumes:
+          - ./nginx.conf:/etc/nginx/nginx.conf
+          - /etc/letsencrypt/:/etc/letsencrypt/
+        ports:
+            - 80:80
+            - 443:443
+        restart: always
+
+    # Service that will serve my resume.
+    myresume:
+        image: jsantman29/personal-resume:latest
+        container_name: js29_personal_resume
+        restart: always
+    
+    # Service with Vocabulary Expander Project.
+    vocabularyexpander:
+        image: jsantman29/vocabulary-expander:latest
+        container_name: js29_ve
+        restart: always

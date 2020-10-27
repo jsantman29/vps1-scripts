@@ -4,7 +4,7 @@ This directory holds config files and scripts for deploying multiple Docker imag
 
 In these config files, it is assumed that the VPS has a directory called `sites`, which holds a `docker-compose.yml` and an `nginx.conf`.
 
-The intended workflow is to build the projects in their respective directories [https://github.com/jsantman29/glowing-chainsaw](Example Project). Use the `deploy-prod.sh` in them to load their Docker image on the VPS. Create containers using those images on the VPS and make them live.
+The intended workflow is to build the projects in their respective directories ([Example Project](https://github.com/jsantman29/glowing-chainsaw)). Use the `deploy-prod.sh` in them to load their Docker image on the VPS. Create containers using those images on the VPS and make them live.
 
 # Scripts
 
